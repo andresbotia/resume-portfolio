@@ -25,7 +25,11 @@
         </div>
       </v-col>
       <v-col :cols="cols[0]" class="landing-svg">
-        <div>test svg goes yhere</div>
+        <img
+          src="../assets/front-end-dev.svg"
+          class="svg-dev-container"
+          alt="Light Logo"
+        />
       </v-col>
     </v-row>
   </v-container>
@@ -88,5 +92,9 @@ export default {
 .download-tag {
   color: #2c3e50;
   text-decoration: none;
+}
+.svg-dev-container {
+  max-width: 100%;
+  height: auto;
 }
 </style>
