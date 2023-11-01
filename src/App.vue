@@ -4,6 +4,7 @@
 </template>
 
 <script>
+import "@mdi/font/css/materialdesignicons.css";
 import appHeader from "../src/components/shared/appHeader.vue";
 export default {
   name: "App",

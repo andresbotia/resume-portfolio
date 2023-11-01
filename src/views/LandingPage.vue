@@ -1,7 +1,7 @@
 <template>
   <v-container>
-    <v-row no-gutters>
-      <v-col cols="6" class="landing-message">
+    <v-row class="mb-6" no-gutters>
+      <v-col :cols="cols[0]" class="landing-message">
         <div>
           <h1>Hi, I am Andres Botia</h1>
           <p class="mb-5">A Front-end Developer &amp; Design Enthusiast</p>
@@ -24,7 +24,7 @@
           >
         </div>
       </v-col>
-      <v-col cols="6" class="landing-svg">
+      <v-col :cols="cols[0]" class="landing-svg">
         <div>test svg goes yhere</div>
       </v-col>
     </v-row>
@@ -49,6 +49,12 @@ export default {
   },
   data: function () {
     return {};
+  },
+  computed: {
+    cols() {
+      const { lg, xs } = this.$vuetify.display;
+      return lg ? [6, 6] : xs ? [12, 12] : [6, 6];
+    },
   },
   methods: {
     downloadPdf(pdfUrl) {
@@ -78,5 +84,9 @@ export default {
 }
 .download-resume-button {
   color: #2c3e50;
+}
+.download-tag {
+  color: #2c3e50;
+  text-decoration: none;
 }
 </style>
