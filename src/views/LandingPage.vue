@@ -5,21 +5,23 @@
         <div>
           <h1>Hi, I am Andres Botia</h1>
           <p class="mb-5">A Front-end Developer &amp; Design Enthusiast</p>
-          <v-btn variant="outlined" @click="downloadPdf">
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="black"
-              class="ml-0 mr-2"
-            >
-              <circle cx="12" cy="12" r="10"></circle>
-              <polyline points="8 12 12 16 16 12"></polyline>
-              <line x1="12" y1="8" x2="12" y2="16"></line>
-            </svg>
-            Download Resume
-          </v-btn>
+          <a href="/resume.pdf" download="" aria-label="Download Resume"
+            ><v-btn variant="outlined download-resume-button">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="black"
+                class="ml-0 mr-2"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="8 12 12 16 16 12"></polyline>
+                <line x1="12" y1="8" x2="12" y2="16"></line>
+              </svg>
+              Download Resume
+            </v-btn></a
+          >
         </div>
       </v-col>
       <v-col cols="6" class="landing-svg">
@@ -49,8 +51,18 @@ export default {
     return {};
   },
   methods: {
-    downloadPdf() {
+    downloadPdf(pdfUrl) {
+      const link = document.createElement("a");
+      link.href = pdfUrl;
+      link.target = "_blank";
+      link.download = "andresbotia-resume.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    },
+    dwadwadownloadPdf() {
       // TODO Finish this
+      window.open("../assets/resume.pdf");
     },
   },
 };
@@ -63,5 +75,8 @@ export default {
   justify-content: center;
   align-items: center;
   height: 100dvh;
+}
+.download-resume-button {
+  color: #2c3e50;
 }
 </style>
