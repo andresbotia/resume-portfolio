@@ -5,7 +5,10 @@
         <div>
           <h1>Hi, I am Andres Botia</h1>
           <p class="mb-5">A Front-end Developer &amp; Design Enthusiast</p>
-          <a href="/resume.pdf" download="" aria-label="Download Resume"
+          <a
+            href="/AndresBotia-Resume.pdf"
+            download=""
+            aria-label="Download Resume"
             ><v-btn variant="outlined download-resume-button">
               <svg
                 width="24"
