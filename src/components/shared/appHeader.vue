@@ -4,7 +4,7 @@
       <h4 @click="$router.push('/')">{{ logoName }}</h4>
     </v-col>
     <v-col class="d-none d-sm-flex justify-center">
-      <v-tabs color="blue-darken-1" align-tabs="center">
+      <v-tabs color="grey-darken-3" align-tabs="center">
         <v-tab
           to="/projects"
           router
@@ -41,17 +41,36 @@
       </v-tabs>
     </v-col>
     <v-col cols="2" class="home-page-dark-mode-toggle d-none d-sm-flex">
-      todo
+      <v-icon
+        v-if="$store.state.lightMode"
+        icon="mdi-moon-waning-crescent"
+        @click="toggleTheme"
+      ></v-icon>
+
+      <v-icon v-else icon="mdi-lightbulb" @click="toggleTheme"></v-icon>
     </v-col>
 
-    <v-col cols="4" class="home-page-logo ml-2 d-flex d-sm-none">
+    <v-col cols="6" class="home-page-logo ml-2 d-flex d-sm-none align-center">
       <h4 @click="$router.push('/')">{{ logoName }}</h4>
     </v-col>
-    <v-col class="d-flex d-sm-none justify-end"> todo </v-col>
-    <v-col class="d-flex d-sm-none justify-end mr-2">
+    <v-col class="d-flex d-sm-none justify-end align-center">
+      <v-icon
+        v-if="$store.state.lightMode"
+        icon="mdi-moon-waning-crescent"
+        @click="toggleTheme"
+      ></v-icon>
+
+      <v-icon v-else icon="mdi-lightbulb" @click="toggleTheme"></v-icon>
+    </v-col>
+    <v-col class="d-flex d-sm-none justify-end mr-2 align-center">
       <v-menu>
         <template v-slot:activator="{ props }">
-          <v-btn icon="mdi-menu" v-bind="props" size="small"></v-btn>
+          <v-btn
+            icon="mdi-menu"
+            v-bind="props"
+            size="small"
+            variant="outlined"
+          ></v-btn>
         </template>
 
         <v-list>
@@ -67,16 +86,18 @@
 </template>
 
 <script>
+import { useTheme } from "vuetify";
 export default {
   data: () => ({
     tab: null,
-    logoName: "< Andres Botia />",
+    logoName: "< Andres Botia / >",
     drawer: false,
     items: [
       { title: "Projects", route: "Projects" },
       { title: "About Me", route: "About" },
       { title: "Contact", route: "Contact" },
     ],
+    theme: useTheme(),
   }),
   computed: {
     cols() {
@@ -85,6 +106,13 @@ export default {
     },
   },
   methods: {
+    toggleTheme() {
+      console.log(this.theme.global.name);
+      this.$store.state.lightMode = !this.$store.state.lightMode;
+      this.theme.global.name = this.theme.global.current.dark
+        ? "light"
+        : "dark";
+    },
     menuClickHandle(itemClicked) {
       this.$router.push({ path: itemClicked.route });
     },

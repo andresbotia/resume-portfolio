@@ -9,13 +9,20 @@
             href="/AndresBotia-Resume.pdf"
             download=""
             aria-label="Download Resume"
-            ><v-btn variant="outlined download-resume-button">
+            ><v-btn
+              variant="outlined download-resume-button"
+              :class="
+                isLightModeOn
+                  ? 'download-resume-button'
+                  : 'download-resume-button-dark-mode'
+              "
+            >
               <svg
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="black"
+                :stroke="isLightModeOn ? 'black' : 'white'"
                 class="ml-0 mr-2"
               >
                 <circle cx="12" cy="12" r="10"></circle>
@@ -29,9 +36,16 @@
       </v-col>
       <v-col :cols="cols[0]" class="landing-svg">
         <img
+          v-if="$store.state.lightMode"
           src="../assets/front-end-dev.svg"
           class="svg-dev-container"
           alt="Light Logo"
+        />
+        <img
+          v-else
+          src="../assets/front-end-dev-dark-mode.svg"
+          class="svg-dev-container"
+          alt="Dark Logo"
         />
       </v-col>
     </v-row>
@@ -62,6 +76,9 @@ export default {
       const { lg, xs } = this.$vuetify.display;
       return lg ? [6, 6] : xs ? [12, 12] : [6, 6];
     },
+    isLightModeOn() {
+      return this.$store.state.lightMode;
+    },
   },
   methods: {
     downloadPdf(pdfUrl) {
@@ -87,10 +104,13 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100dvh;
+  height: 50dvh;
 }
 .download-resume-button {
   color: #2c3e50;
+}
+.download-resume-button-dark-mode {
+  color: white;
 }
 .download-tag {
   color: #2c3e50;
