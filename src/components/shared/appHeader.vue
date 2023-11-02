@@ -4,7 +4,10 @@
       <h4 @click="$router.push('/')">{{ logoName }}</h4>
     </v-col>
     <v-col class="d-none d-sm-flex justify-center">
-      <v-tabs color="grey-darken-3" align-tabs="center">
+      <v-tabs
+        :class="isLightModeOn ? 'grey-darken-3' : 'grey-lighten-4'"
+        align-tabs="center"
+      >
         <v-tab
           to="/projects"
           router
@@ -103,6 +106,9 @@ export default {
     cols() {
       const { xs } = this.$vuetify.display;
       return xs ? [1] : [2];
+    },
+    isLightModeOn() {
+      return this.$store.state.lightMode;
     },
   },
   methods: {
