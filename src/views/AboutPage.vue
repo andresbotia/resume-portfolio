@@ -79,7 +79,7 @@ export default {
 <style scoped>
 .avatar-photo {
   border-radius: 0.5rem;
-  height: 300px;
-  width: 300px;
+  max-width: 100%;
+  height: auto;
 }
 </style>
