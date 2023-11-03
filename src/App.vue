@@ -1,15 +1,18 @@
 <template>
   <appHeader />
   <router-view />
+  <appFooter />
 </template>
 
 <script>
 import "@mdi/font/css/materialdesignicons.css";
 import appHeader from "../src/components/shared/appHeader.vue";
+import appFooter from "../src/components/shared/appFooter.vue";
 export default {
   name: "App",
   components: {
     appHeader,
+    appFooter,
   },
   data: function () {
     return {};

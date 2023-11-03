@@ -126,9 +126,8 @@ export default {
   methods: {
     hideAlert() {
       console.log("Hide");
-      window.setInterval(() => {
+      window.setTimeout(() => {
         this.alert = false;
-        console.log("hide alert after 3 seconds");
       }, 3000);
     },
     async sendEmail() {

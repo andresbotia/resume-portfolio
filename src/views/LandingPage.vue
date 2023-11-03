@@ -10,7 +10,7 @@
             download=""
             aria-label="Download Resume"
             ><v-btn
-              variant="outlined download-resume-button"
+              variant="outlined"
               :class="
                 isLightModeOn
                   ? 'download-resume-button'
