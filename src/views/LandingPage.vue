@@ -54,7 +54,6 @@
   <v-container>
     <v-row no-gutters>
       <v-col cols="12">
-        <v-divider :thickness="20" color="error"></v-divider>
         <projects />
       </v-col>
     </v-row>
@@ -89,10 +88,6 @@ export default {
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-    },
-    dwadwadownloadPdf() {
-      // TODO Finish this
-      window.open("../assets/resume.pdf");
     },
   },
 };
