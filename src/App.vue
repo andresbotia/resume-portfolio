@@ -28,4 +28,9 @@ export default {
   text-align: center;
   margin-top: 60px;
 }
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 </style>
