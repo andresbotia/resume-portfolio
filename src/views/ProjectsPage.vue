@@ -23,7 +23,7 @@
 
       <v-card-text>
         <div>
-          <h1>{{ card.name }}</h1>
+          <h1 class="card-title">{{ card.name }}</h1>
         </div>
 
         <div class="pt-4">{{ card.description }}</div>
@@ -75,5 +75,8 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center !important;
+}
+.card-title {
+  line-height: 1.4em;
 }
 </style>
