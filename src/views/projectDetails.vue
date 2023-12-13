@@ -25,25 +25,27 @@
     </v-row>
     <div class="flex-container space-around" v-show="!mobileUserCheck">
       <v-img
-        :width="250"
+        width="400"
+        height="400"
         aspect-ratio="1/1"
-        cover
         class="showcase-images flex-item"
         :src="getImgUrl(projectInfo.id)"
       ></v-img>
       <v-img
-        :width="250"
+        width="400"
+        height="400"
+        v-show="projectInfo.hasImage2"
         aspect-ratio="1/1"
-        cover
         class="showcase-images flex-item"
-        src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"
+        :src="getImgUrl2(projectInfo.id)"
       ></v-img>
       <v-img
-        :width="250"
+        width="400"
+        height="400"
+        v-show="projectInfo.hasImage3"
         aspect-ratio="1/1"
-        cover
         class="showcase-images flex-item"
-        src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"
+        :src="getImgUrl3(projectInfo.id)"
       ></v-img>
     </div>
     <div class="flex-container space-around" v-show="mobileUserCheck">
@@ -52,18 +54,22 @@
         height="400"
         class="parent-carousel"
         hide-delimiter-background
-        show-arrows="hover"
+        :show-arrows="false"
       >
         <v-carousel-item :src="getImgUrl(projectInfo.id)"></v-carousel-item>
 
         <v-carousel-item
-          src="https://cdn.vuetifyjs.com/images/cards/hotel.jpg"
-          cover
+          v-if="projectInfo.hasImage2"
+          :src="getImgUrl2(projectInfo.id)"
         ></v-carousel-item>
 
         <v-carousel-item
-          src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-          cover
+          v-if="projectInfo.hasImage3"
+          :src="getImgUrl3(projectInfo.id)"
+        ></v-carousel-item>
+        <v-carousel-item
+          v-if="projectInfo.hasImage4"
+          :src="getImgUrl4(projectInfo.id)"
         ></v-carousel-item>
       </v-carousel>
     </div>
@@ -166,11 +172,43 @@ export default {
   },
   methods: {
     getImgUrl(picId) {
-      console.log(picId);
       if (picId === undefined) {
         return require("data:,");
       } else {
         return require("../assets/Logo" + picId + ".jpeg");
+      }
+    },
+    getImgUrl2(picId) {
+      if (picId === undefined) {
+        return require("data:,");
+      } else {
+        if (this.projectInfo.hasImage2) {
+          return require("../assets/project" + picId + "Image2.jpeg");
+        } else {
+          return require("data:,");
+        }
+      }
+    },
+    getImgUrl3(picId) {
+      if (picId === undefined) {
+        return require("data:,");
+      } else {
+        if (this.projectInfo.hasImage3) {
+          return require("../assets/project" + picId + "Image3.jpeg");
+        } else {
+          return require("data:,");
+        }
+      }
+    },
+    getImgUrl4(picId) {
+      if (picId === undefined) {
+        return require("data:,");
+      } else {
+        if (this.projectInfo.hasImage4) {
+          return require("../assets/project" + picId + "Image4.jpeg");
+        } else {
+          return require("data:,");
+        }
       }
     },
   },

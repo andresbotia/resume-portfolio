@@ -6,9 +6,8 @@ export default createStore({
     cardList: [
       { id: 1, name: "dummyname1", date: "Nov 04, 2021" },
       { id: 2, name: "dummyname2" },
-      { id: 3, name: "dummyname3" },
       {
-        id: 4,
+        id: 3,
         name: "Distantly Near",
         date: "Dec 06, 2021",
         TechStack: "MERN (MongoDB, Express.js , React.js, Node.js )",
@@ -22,7 +21,11 @@ export default createStore({
         challenge: `Our main motivation was to create a project not only that could pass the final project guidelines, but a project in which we were able to learn and actively work on real world applications such as MongoDB, Postman, React.js, Node.js, Express.js.`,
         challenge2: `Functionalities included: Create an account, login, share post, interact with like button, search bar for friends, follow button, friends list.`,
         challenge3: `Our Target Audience was to reach individuals affected by the pandemic and social distancing. This application allows them to interact with each other.`,
+        hasImage2: true,
+        hasImage3: true,
+        hasImage4: false,
       },
+      { id: 4, name: "dummyname3" },
       { id: 5, name: "dummyname5" },
       { id: 6, name: "dummyname6" },
     ],
