@@ -13,7 +13,7 @@
           router
           :exact="true"
           :selected-class="
-            this.$route.name === 'Projects'
+            this.$route.name === 'Projects' || this.$route.name === 'Details'
               ? 'v-tab--selected'
               : 'inactive-nav-tab'
           "

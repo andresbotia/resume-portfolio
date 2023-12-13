@@ -2,12 +2,16 @@
   <div class="col-12 mt-4">
     <h1>Projects Portfolio</h1>
   </div>
-  <div class="col-10 d-flex justify-center flex-wrap mt-4">
+  <div
+    class="col-10 d-flex justify-center flex-wrap mt-4"
+    :class="mobileUserCheck ? 'mobile-view' : ''"
+  >
     <v-card
-      v-for="card in cardList"
-      :key="card.id"
+      v-for="(card, i) in getCardListData"
+      :key="i"
       max-width="500"
       class="individual-project-card"
+      @click="openProjectDetails(card)"
     >
       <v-img
         class="align-end text-white"
@@ -33,19 +37,27 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "ProjectsPage",
   data: function () {
     return {
-      cardList: [
-        { id: 1 },
-        { id: 2 },
-        { id: 3 },
-        { id: 4 },
-        { id: 5 },
-        { id: 6 },
-      ],
+      mobileUserCheck: false,
     };
+  },
+  computed: {
+    ...mapGetters(["getCardListData"]),
+  },
+  mounted() {
+    const { xs } = this.$vuetify.display;
+
+    xs ? (this.mobileUserCheck = true) : (this.mobileUserCheck = false);
+    this.mobileUserCheck ? console.log("1") : console.log("2");
+  },
+  methods: {
+    openProjectDetails(card) {
+      this.$router.push({ name: "Details", params: { id: card.id } });
+    },
   },
 };
 </script>
@@ -55,5 +67,10 @@ export default {
   flex-basis: 33.33333%;
   flex: 0 0 30%;
   margin: 2rem;
+}
+.mobile-view {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center !important;
 }
 </style>
