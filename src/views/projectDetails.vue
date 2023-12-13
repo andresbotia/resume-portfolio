@@ -151,6 +151,7 @@ export default {
       }
     });
     console.log(this.projectInfo.id, "--");
+    window.scrollTo(0, 2);
   },
 };
 </script>
