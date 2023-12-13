@@ -16,22 +16,18 @@
       <v-img
         class="align-end text-white"
         height="200"
-        src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+        :src="getImgUrl(card.id)"
         cover
       >
       </v-img>
 
       <v-card-text>
-        <div>Project {{ card.id }}</div>
+        <div>
+          <h1>{{ card.name }}</h1>
+        </div>
 
-        <div>Project description here.....</div>
+        <div class="pt-4">{{ card.description }}</div>
       </v-card-text>
-
-      <v-card-actions style="display: none">
-        <v-btn color="orange"> Share </v-btn>
-
-        <v-btn color="orange"> Explore </v-btn>
-      </v-card-actions>
     </v-card>
   </div>
 </template>
@@ -52,11 +48,20 @@ export default {
     const { xs } = this.$vuetify.display;
 
     xs ? (this.mobileUserCheck = true) : (this.mobileUserCheck = false);
-    this.mobileUserCheck ? console.log("1") : console.log("2");
+
+    console.log("[asset]", this.getCardListData[3]);
   },
   methods: {
     openProjectDetails(card) {
       this.$router.push({ name: "Details", params: { id: card.id } });
+    },
+    getImgUrl(picId) {
+      console.log(picId);
+      if (picId === undefined) {
+        return require("data:,");
+      } else {
+        return require("../assets/Logo" + picId + ".jpeg");
+      }
     },
   },
 };
