@@ -80,7 +80,11 @@
         </div>
         <div class="about-section">
           <p>Name: {{ projectInfo.name }}</p>
-          <p>Website: {{ projectInfo.siteAddress }}</p>
+          <p v-if="projectInfo.hyperLinkSite" :href="projectInfo.siteAddress">
+            Website:
+            <a :href="projectInfo.siteAddress">{{ projectInfo.siteAddress }}</a>
+          </p>
+          <p v-else>Website: {{ projectInfo.siteAddress }}</p>
           <p>Created for: {{ projectInfo.createdFor }}</p>
         </div>
         <div class="d-flex mt-4">
