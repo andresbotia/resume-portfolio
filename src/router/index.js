@@ -4,6 +4,7 @@ import About from "../views/AboutPage.vue";
 import Projects from "../views/ProjectsPage.vue";
 import Contact from "../views/ContactPage.vue";
 import Details from "../views/projectDetails.vue";
+import Error from "../views/ErrorPage.vue";
 const routes = [
   {
     path: "/",
@@ -30,6 +31,7 @@ const routes = [
     name: "Details",
     component: Details,
   },
+  { name: "Error", path: "/:pathMatch(.*)*", component: Error },
 ];
 
 const router = createRouter({

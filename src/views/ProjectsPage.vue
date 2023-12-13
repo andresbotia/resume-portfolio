@@ -48,8 +48,6 @@ export default {
     const { xs } = this.$vuetify.display;
 
     xs ? (this.mobileUserCheck = true) : (this.mobileUserCheck = false);
-
-    console.log("[asset]", this.getCardListData[3]);
   },
   methods: {
     openProjectDetails(card) {

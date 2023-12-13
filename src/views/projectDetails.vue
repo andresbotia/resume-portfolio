@@ -23,31 +23,50 @@
         <p class="ml-2">{{ projectInfo.tags }}</p>
       </div>
     </v-row>
-    <v-row class="mb-6" no-gutters>
-      <div class="d-inline-flex">
-        <v-img
-          :width="250"
-          aspect-ratio="1/1"
+    <div class="flex-container space-around" v-show="!mobileUserCheck">
+      <v-img
+        :width="250"
+        aspect-ratio="1/1"
+        cover
+        class="showcase-images flex-item"
+        :src="getImgUrl(projectInfo.id)"
+      ></v-img>
+      <v-img
+        :width="250"
+        aspect-ratio="1/1"
+        cover
+        class="showcase-images flex-item"
+        src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"
+      ></v-img>
+      <v-img
+        :width="250"
+        aspect-ratio="1/1"
+        cover
+        class="showcase-images flex-item"
+        src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"
+      ></v-img>
+    </div>
+    <div class="flex-container space-around" v-show="mobileUserCheck">
+      <v-carousel
+        cycle
+        height="400"
+        class="parent-carousel"
+        hide-delimiter-background
+        show-arrows="hover"
+      >
+        <v-carousel-item :src="getImgUrl(projectInfo.id)"></v-carousel-item>
+
+        <v-carousel-item
+          src="https://cdn.vuetifyjs.com/images/cards/hotel.jpg"
           cover
-          class="showcase-images"
-          :src="getImgUrl(projectInfo.id)"
-        ></v-img>
-        <v-img
-          :width="250"
-          aspect-ratio="1/1"
+        ></v-carousel-item>
+
+        <v-carousel-item
+          src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
           cover
-          class="showcase-images"
-          src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"
-        ></v-img>
-        <v-img
-          :width="250"
-          aspect-ratio="1/1"
-          cover
-          class="showcase-images"
-          src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"
-        ></v-img>
-      </div>
-    </v-row>
+        ></v-carousel-item>
+      </v-carousel>
+    </div>
     <v-row class="mb-6" no-gutters>
       <v-col :cols="cols[0]" class="landing-message">
         <div class="d-flex">
@@ -137,6 +156,9 @@ export default {
         this.showLoader = false;
       }
     });
+    if (this.projectInfo.length <= 0) {
+      this.$router.push({ name: "Error" });
+    }
     window.scrollTo(0, 2);
     const { xs } = this.$vuetify.display;
 
@@ -166,5 +188,28 @@ export default {
 }
 .trasparent-sheet {
   background-color: transparent;
+}
+.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+}
+.flex-item {
+  padding: 5px;
+  width: 250px;
+  height: 250px;
+  margin: 5px;
+  line-height: 50px;
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+}
+.space-around {
+  justify-content: space-around;
+}
+.parent-carousel {
+  width: 40vh !important;
 }
 </style>

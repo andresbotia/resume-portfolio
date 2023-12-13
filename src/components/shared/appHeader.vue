@@ -120,7 +120,7 @@ export default {
         : "dark";
     },
     menuClickHandle(itemClicked) {
-      this.$router.push({ path: itemClicked.route });
+      this.$router.push({ name: itemClicked.route });
     },
   },
 };
