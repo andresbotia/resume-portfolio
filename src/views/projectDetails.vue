@@ -25,12 +25,12 @@
     </v-row>
     <div class="flex-container space-around" v-show="!mobileUserCheck">
       <v-img
+        v-if="projectInfo.hasPngLogo"
         width="400"
         height="400"
         aspect-ratio="1/1"
         class="showcase-images flex-item"
         :src="getImgUrlPng(projectInfo.id)"
-        v-if="projectInfo.hasPngLogo"
       ></v-img>
       <v-img
         v-else
@@ -214,10 +214,15 @@ export default {
   },
   methods: {
     getImgUrl(picId) {
+      console.log("[here for some odd reason]", this.picId);
       if (picId === undefined) {
         return require("data:,");
       } else {
-        return require("../assets/Logo" + picId + ".jpeg");
+        if (picId === 1 || picId === 2) {
+          return require("../assets/Logo" + picId + ".png");
+        } else {
+          return require("../assets/Logo" + picId + ".jpeg");
+        }
       }
     },
     getImgUrlPng(picId) {
