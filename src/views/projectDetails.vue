@@ -29,6 +29,15 @@
         height="400"
         aspect-ratio="1/1"
         class="showcase-images flex-item"
+        :src="getImgUrlPng(projectInfo.id)"
+        v-if="projectInfo.hasPngLogo"
+      ></v-img>
+      <v-img
+        v-else
+        width="400"
+        height="400"
+        aspect-ratio="1/1"
+        class="showcase-images flex-item"
         :src="getImgUrl(projectInfo.id)"
       ></v-img>
       <v-img
@@ -209,6 +218,13 @@ export default {
         return require("data:,");
       } else {
         return require("../assets/Logo" + picId + ".jpeg");
+      }
+    },
+    getImgUrlPng(picId) {
+      if (picId === undefined) {
+        return require("data:,");
+      } else {
+        return require("../assets/Logo" + picId + ".png");
       }
     },
     getImgUrl2(picId) {

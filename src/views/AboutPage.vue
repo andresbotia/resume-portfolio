@@ -23,7 +23,7 @@
             min-height="20rem"
             :border="false"
             rounded
-            class="mt-8 pa-4 text-center mx-auto"
+            class="mt-4 pa-4 text-center mx-auto"
           >
             <p>
               Hey there! 👋 I'm Andres Botia, a 24-year-old software engineer

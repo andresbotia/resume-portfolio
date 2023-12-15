@@ -26,6 +26,7 @@ export default createStore({
         hasImage3: true,
         hasImage4: false,
         hyperLinkSite: false,
+        hasPngLogo: true,
       },
       {
         id: 2,
@@ -58,6 +59,7 @@ export default createStore({
         showFormula: true,
         showList: true,
         formula: "AdRevenue = 0.0000085 x Number of Impressions",
+        hasPngLogo: true,
       },
       {
         id: 3,

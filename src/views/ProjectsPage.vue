@@ -15,6 +15,14 @@
       :disabled="card.disabled"
     >
       <v-img
+        v-if="card.hasPngLogo"
+        class="align-end text-white"
+        height="200"
+        :src="getImgUrlPng(card.id)"
+        cover
+      ></v-img>
+      <v-img
+        v-else
         class="align-end text-white"
         height="200"
         :src="getImgUrl(card.id)"
@@ -55,11 +63,17 @@ export default {
       this.$router.push({ name: "Details", params: { id: card.id } });
     },
     getImgUrl(picId) {
-      console.log(picId);
       if (picId === undefined) {
         return require("data:,");
       } else {
         return require("../assets/Logo" + picId + ".jpeg");
+      }
+    },
+    getImgUrlPng(picId) {
+      if (picId === undefined) {
+        return require("data:,");
+      } else {
+        return require("../assets/Logo" + picId + ".png");
       }
     },
   },
