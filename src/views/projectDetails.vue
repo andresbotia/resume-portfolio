@@ -82,9 +82,13 @@
           <p>Name: {{ projectInfo.name }}</p>
           <p v-if="projectInfo.hyperLinkSite" :href="projectInfo.siteAddress">
             Website:
-            <a :href="projectInfo.siteAddress">{{ projectInfo.siteAddress }}</a>
+            <a :href="projectInfo.siteAddress">{{
+              projectInfo.siteAddressName
+            }}</a>
           </p>
-          <p v-else>Website: {{ projectInfo.siteAddress }}</p>
+          <p v-else v-show="projectInfo.website">
+            Website: {{ projectInfo.siteAddress }}
+          </p>
           <p>Created for: {{ projectInfo.createdFor }}</p>
         </div>
         <div class="d-flex mt-4">
@@ -122,8 +126,26 @@
             <p class="mt-4" v-show="projectInfo.challenge2">
               {{ projectInfo.challenge2 }}
             </p>
+            <p class="mt-4" v-show="projectInfo.showList">
+              <v-list lines="one" density="compact">
+                <v-list-item
+                  v-for="n in projectInfo.list"
+                  :key="n"
+                  :title="n"
+                ></v-list-item>
+              </v-list>
+            </p>
             <p class="mt-4" v-show="projectInfo.challenge3">
               {{ projectInfo.challenge3 }}
+            </p>
+            <p
+              class="mt-4 text-center font-weight-bold"
+              v-show="projectInfo.showFormula"
+            >
+              {{ projectInfo.formula }}
+            </p>
+            <p class="mt-4" v-show="projectInfo.challenge4">
+              {{ projectInfo.challenge4 }}
             </p>
           </v-sheet>
         </v-sheet></v-col
@@ -170,9 +192,16 @@ export default {
       this.$router.push({ name: "Error" });
     }
     window.scrollTo(0, 2);
-    const { xs } = this.$vuetify.display;
+    const { xs, sm, md } = this.$vuetify.display;
 
-    xs ? (this.mobileUserCheck = true) : (this.mobileUserCheck = false);
+    let isSmallerScreen = false;
+    if (xs | sm | md) {
+      isSmallerScreen = true;
+    }
+
+    isSmallerScreen
+      ? (this.mobileUserCheck = true)
+      : (this.mobileUserCheck = false);
   },
   methods: {
     getImgUrl(picId) {

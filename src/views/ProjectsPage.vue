@@ -12,6 +12,7 @@
       max-width="500"
       class="individual-project-card"
       @click="openProjectDetails(card)"
+      :disabled="card.disabled"
     >
       <v-img
         class="align-end text-white"

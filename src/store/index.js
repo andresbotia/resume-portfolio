@@ -4,8 +4,61 @@ export default createStore({
   state: {
     lightMode: true,
     cardList: [
-      { id: 1, name: "dummyname1", date: "Nov 04, 2021" },
-      { id: 2, name: "dummyname2" },
+      {
+        id: 1,
+        name: "HabitHub",
+        date: "Dec 16, 2023",
+        TechStack: "Figma",
+        tags: "UI/UX",
+        description:
+          "Embrace Positive Change with HabitHut: A Dark Mode, Minimalist Habit Tracker",
+        createdFor:
+          "showcasing figma UI/UX design for a minimalistic UI application",
+        objective:
+          "HabitHut aims to transform the process of habit tracking into a pleasurable and stylish journey, encouraging users to embrace and celebrate their daily wins in a space that feels like a digital retreat. The ultimate goal is to inspire and support users in building better habits with intentionality and flair.",
+        challenge: `Venture into the world of HabitHut—an immersive Figma design for a habit tracker app that's more than just a tool; it's a sleek, cozy retreat for your daily wins. 🌟`,
+        challenge2: `HabitHut is more than checkboxes; it's about crafting a lifestyle within a minimalist, visually stunning space. From sleek interfaces to effortless navigation, every element is meticulously designed to make tracking habits a pleasure in the shadows.`,
+        challenge3: `
+        The app's layout is structured to provide a seamless navigation experience, ensuring that users can effortlessly input, track, and celebrate their daily wins...`,
+        challenge4: `
+        So, whether you're striving to build new habits or break old ones, HabitHut is designed to be your trusted companion on this journey. With this Figma design, I aimed to capture the essence of a cozy retreat, where habits aren't just tracked—they're embraced and celebrated in a space that feels like home. Welcome to HabitHut, where positive change feels like coming home.`,
+        hasImage2: true,
+        hasImage3: true,
+        hasImage4: false,
+        hyperLinkSite: false,
+      },
+      {
+        id: 2,
+        name: "Google Chrome Extension",
+        date: "Dec 14, 2023",
+        TechStack: "Chrome Extension, JS, HTML",
+        tags: "Front End (UI), Browser Extension",
+        description:
+          "Google Chrome Extension that shows the estimated revenue for individual tweets",
+        createdFor:
+          "personal project, wanted to learn and experiment on chrome extensions",
+        siteAddressName: "Twitter Revenue Chrome Extension",
+        siteAddress:
+          "https://github.com/andresbotia/TwitterRevenueChromeExtension",
+        objective: "Create a google chrome extension that changes twitters UI",
+        challenge: `Ever wonder if your tweets are worth more than just likes and views? In the above images you can see a Tweet from Elon Musk one shows the revenue that tweet could potentially make another shows twitters view count`,
+        challenge2: `This Google Chrome Extension changes the views button on a tweet to show the estimated revenue the user made from that specific tweet.
+        According to Twitter( X? nobody really calls it that lets be honest), A user needs to pass three cases to become eligible for revenue`,
+        challenge3: `I wanted to figure out how much a tweet "Could" make per its views. According to CalculateBuddy, there is a rough estimation formula we can use for this which is:`,
+        challenge4: `We can receive a tweets number of views(impressions) and use the formula to calculate the potential of revenue received per that individual tweet`,
+        list: [
+          "1. Be subscribed to X Premium or Verified Organizations.",
+          "2. Have at least 5M organic impressions on your cumulative posts within the last 3 months.",
+          "3. Have at least 500 followers",
+        ],
+        hasImage2: true,
+        hasImage3: true,
+        hasImage4: false,
+        hyperLinkSite: true,
+        showFormula: true,
+        showList: true,
+        formula: "AdRevenue = 0.0000085 x Number of Impressions",
+      },
       {
         id: 3,
         name: "Distantly Near",
@@ -24,6 +77,7 @@ export default createStore({
         hasImage2: true,
         hasImage3: true,
         hasImage4: false,
+        website: true,
       },
       {
         id: 4,
@@ -32,7 +86,9 @@ export default createStore({
         TechStack: "JS, HTML, CSS, SCSS",
         tags: "Front End (UI)",
         description: "A personal photography portfolio",
-        createdFor: "showcase photography taken by me over the years",
+        createdFor: "showcasing photography taken by me over the years",
+        website: true,
+        siteAddressName: "andres-photography-portfolio",
         siteAddress: "https://andres-photography-portfolio.netlify.app/",
         objective:
           "Create a site to display my personal photography and start my hands on experience in web development. This was one of my very first personal projects and it's built using basic html and JavaScript mixed with css",
@@ -51,8 +107,14 @@ export default createStore({
         hasImage4: false,
         hyperLinkSite: true,
       },
-      { id: 5, name: "dummyname5" },
-      { id: 6, name: "dummyname6" },
+      {
+        id: 5,
+        name: "Coming Soon....",
+        description:
+          "A project based on the Astro framework, the web framework for content-driven websites",
+        disabled: true,
+      },
+      { id: 6, name: "Coming Soon....", disabled: true },
     ],
   },
   mutations: {},
