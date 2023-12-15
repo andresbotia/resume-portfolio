@@ -128,7 +128,7 @@ export default {
 
 <style>
 .inactive-nav-tab {
-  color: #2c3e50;
+  /*color: #2c3e50;*/
 }
 .home-page-logo,
 .home-page-dark-mode-toggle {
