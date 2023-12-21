@@ -40,7 +40,7 @@ export default createStore({
           "personal project, wanted to learn and experiment on chrome extensions",
         siteAddressName: "Twitter Revenue Chrome Extension",
         siteAddress:
-          "https://github.com/andresbotia/TwitterRevenueChromeExtension",
+          "https://chromewebstore.google.com/detail/twitter-estimated-revenue/fognfoiolehcjbakhcmdppjalhapckno",
         objective: "Create a google chrome extension that changes twitters UI",
         challenge: `Ever wonder if your tweets are worth more than just likes and views? In the above images you can see a Tweet from Elon Musk one shows the revenue that tweet could potentially make another shows twitters view count`,
         challenge2: `This Google Chrome Extension changes the views button on a tweet to show the estimated revenue the user made from that specific tweet.
