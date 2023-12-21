@@ -214,11 +214,10 @@ export default {
   },
   methods: {
     getImgUrl(picId) {
-      console.log("[here for some odd reason]", this.picId);
       if (picId === undefined) {
         return require("data:,");
       } else {
-        if (picId === 1 || picId === 2) {
+        if (picId === 1 || picId === 2 || picId === 3) {
           return require("../assets/Logo" + picId + ".png");
         } else {
           return require("../assets/Logo" + picId + ".jpeg");

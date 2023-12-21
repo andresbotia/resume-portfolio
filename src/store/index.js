@@ -80,6 +80,7 @@ export default createStore({
         hasImage3: true,
         hasImage4: false,
         website: true,
+        hasPngLogo: true,
       },
       {
         id: 4,
@@ -116,7 +117,7 @@ export default createStore({
           "A project based on the Astro framework, the web framework for content-driven websites",
         disabled: true,
       },
-      { id: 6, name: "Coming Soon....", disabled: true },
+      { id: 6, name: "Coming Soon....", disabled: true, hasPngLogo: true },
     ],
   },
   mutations: {},
