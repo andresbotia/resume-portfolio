@@ -113,7 +113,6 @@ export default {
   },
   methods: {
     toggleTheme() {
-      console.log(this.theme.global.name);
       this.$store.state.lightMode = !this.$store.state.lightMode;
       this.theme.global.name = this.theme.global.current.dark
         ? "light"

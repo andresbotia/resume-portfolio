@@ -8,6 +8,7 @@
 import "@mdi/font/css/materialdesignicons.css";
 import appHeader from "../src/components/shared/appHeader.vue";
 import appFooter from "../src/components/shared/appFooter.vue";
+import { useTheme } from "vuetify";
 export default {
   name: "App",
   components: {
@@ -15,7 +16,11 @@ export default {
     appFooter,
   },
   data: function () {
-    return {};
+    return { theme: useTheme() };
+  },
+  created() {
+    this.$store.state.lightMode = !this.$store.state.lightMode;
+    this.theme.global.name = this.theme.global.current.dark ? "light" : "dark";
   },
 };
 </script>
