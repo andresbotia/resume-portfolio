@@ -19,8 +19,7 @@
           :class="isLightModeOn ? '' : 'trasparent-sheet'"
           class="pa-4 text-center mx-auto"
           ><v-sheet
-            width="50%"
-            min-height="20rem"
+            width="90%"
             :border="false"
             rounded
             class="mt-4 pa-4 text-center mx-auto"
